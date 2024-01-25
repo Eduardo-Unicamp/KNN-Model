@@ -55,7 +55,7 @@ def knn(data:list,analysed_point_coordinates:tuple, k = 3):
         agressivo += pair.count('Agressivo')
     # ---- essa parte fala qual das categorias tem mais, já criando o resultado final da fução que será o deduction
     deduction = ''
-    possibilities = {'Conservador': conservador,'Moderado':moderado,'Agressivo':agressivo}
+    possibilities = {'Conservador': conservador,'Moderado':moderado,'Agressivo':agressivo}#nessa ordem pois em caso de empate optou-se por considerar a opçaõ mais agressiva
     for x in possibilities.values():
         if max(possibilities.values()) == x:
             deduction =list(possibilities.keys())[list(possibilities.values()).index(x)]
@@ -64,4 +64,33 @@ def knn(data:list,analysed_point_coordinates:tuple, k = 3):
     return deduction
 
 
+
+
+def dataset_knn(base_dataset:list,analysed_data:list):
+    for sublist in analysed_data:
+        sublist[1] = knn(base_dataset,sublist[2])
+    print(analysed_data)
+    return analysed_data
     
+
+def file_dataset_knn(base_dataset:list,analysed_data:list):
+    results_list = dataset_knn(base_dataset,analysed_data)
+    file = open('knn_output.txt','w+')
+    file.write('Os resultados encontrados pelo modelo k-nearest neigbors para o conjunto apresentado foi:\n\n')
+    file.close() 
+    written = False
+    i = 1
+    while  written == False:
+
+        try:
+            file = open(f'knn_output{i}.txt','x')
+            file.close()
+            file = open(f'knn_output{i}.txt','a+')
+            for line in results_list:
+                file.write(str(line))
+                file.write('\n')  
+            written = True
+        except:
+            i+=1
+  
+    file.close()
