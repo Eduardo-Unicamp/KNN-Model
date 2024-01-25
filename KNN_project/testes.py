@@ -122,7 +122,7 @@ data = [[66707599984, 'Conservador', (5100., 3500., 1400., 200.)],
 [49212614633, 'Agressivo', (5900., 3000., 5100., 1800.)]]
 
 
-knn(data,(5700., 4400., 1500., 400.))
+knn(data,(5700., 2900., 4200., 1300.))
 
 
 
@@ -133,3 +133,5 @@ knn(data,(5700., 4400., 1500., 400.))
 '''teste de eficiencia: ou divide em teste e treino que nem ta no lms ou entao pra cada elemento tenta advinha a posição dele pros outros que sobraram e ver se acertou ou nao'''
 #depois ver sobre a outra distancia sem ser euclidiana
 #checar sobre normalização de dimensoes 
+
+# e se der igual dois valores pra distancia oq ocorre?

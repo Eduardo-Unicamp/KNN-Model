@@ -42,15 +42,26 @@ def knn(data:list,analysed_point_coordinates:tuple, k = 3):
             if cpf in client:
                 category = client[1]
                 k_nearest_new.append([category,distance])
-    print(k_nearest_new)
-        
-
-
-
-
-    #print(distances_dict,'\n\n',sorted_list,'\n\n',k_nearest,'\n\n')
 
 
     #dar a resposta com base nisso
+    conservador = 0
+    moderado = 0
+    agressivo = 0
+    # ---- essa parte conta quantos são de cada categoria
+    for pair in k_nearest_new:
+        conservador += pair.count('Conservador')
+        moderado += pair.count('Moderado')
+        agressivo += pair.count('Agressivo')
+    # ---- essa parte fala qual das categorias tem mais, já criando o resultado final da fução que será o deduction
+    deduction = ''
+    possibilities = {'Conservador': conservador,'Moderado':moderado,'Agressivo':agressivo}
+    for x in possibilities.values():
+        if max(possibilities.values()) == x:
+            deduction =list(possibilities.keys())[list(possibilities.values()).index(x)]
     
-    #---------------COMMENT TO AVOID GETTING LOOSSSSSSSTTT IN CTRL-Z -------------------------------------------------------------#
+    #return
+    return deduction
+
+
+    
