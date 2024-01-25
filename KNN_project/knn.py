@@ -17,7 +17,7 @@ def euclidean_distance(dimensions:int, initial_point_coordinates:list,final_poin
 
 
 
-def knn(data:list,analysed_point_coordinates:tuple):
+def knn(data:list,analysed_point_coordinates:tuple, k = 3):
     distances_list = []
     
     #calcular todas as distancias
@@ -25,13 +25,10 @@ def knn(data:list,analysed_point_coordinates:tuple):
         values_tuple = client[2]
         distances_list.append(euclidean_distance(len(values_tuple),list(values_tuple),list(analysed_point_coordinates)))
         
-    print(distances_list)
-
-
-
     #ver quais as k menores
+    sorted_list = sorted(distances_list)
+    k_nearest = sorted_list[0:k]
 
-
-    
+    print(sorted_list, '\n\n\n', k_nearest) 
     #dar a resposta com base nisso
     
