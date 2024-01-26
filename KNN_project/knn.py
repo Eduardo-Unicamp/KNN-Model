@@ -14,9 +14,6 @@ def euclidean_distance(dimensions:int, initial_point_coordinates:list,final_poin
     return distance
 
 
-
-
-
 def knn(data:list,analysed_point_coordinates:tuple, k = 3):
     distances_dict = {}
     
@@ -79,9 +76,6 @@ def dataset_knn(base_dataset:list,analysed_data:list):
 
 def file_dataset_knn(base_dataset:list,analysed_data:list):
     results_list = dataset_knn(base_dataset,analysed_data)
-    file = open('knn_output.txt','w+')
-    file.write('Os resultados encontrados pelo modelo k-nearest neigbors para o conjunto apresentado foi:\n\n')
-    file.close() 
     written = False
     i = 1
     while  written == False:
@@ -90,6 +84,7 @@ def file_dataset_knn(base_dataset:list,analysed_data:list):
             file = open(f'knn_output{i}.txt','x')
             file.close()
             file = open(f'knn_output{i}.txt','a+')
+            file.write('Os resultados encontrados pelo modelo k-nearest neigbors para o conjunto apresentado foram:\n\n')
             for line in results_list:
                 file.write(str(line))
                 file.write('\n')  

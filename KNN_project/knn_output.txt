@@ -1,2 +1,0 @@
-Os resultados encontrados pelo modelo k-nearest neigbors para o conjunto apresentado foi:
-

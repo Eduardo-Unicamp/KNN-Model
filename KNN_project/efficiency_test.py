@@ -157,7 +157,7 @@ no_class = [[45926320819, '', (5800., 4000., 1200., 200.)],
 [64703873108, '', (6000., 2200., 5000., 1500.)]]
 
 
-def eficiency_test(data,debug = False):
+def efficiency_test(data,debug = False):
     #define para cada elemento se houve acerto ou erro
     lista_de_acertos = []
     for cliente in data:
@@ -181,4 +181,4 @@ def eficiency_test(data,debug = False):
         return lista_de_acertos, f'acurária:{accuracy:.1f}%'
 
 
-print(eficiency_test(data,debug=True))
+print(efficiency_test(data,debug=True))
