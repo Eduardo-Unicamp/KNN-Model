@@ -158,6 +158,7 @@ no_class = [[45926320819, '', (5800., 4000., 1200., 200.)],
 
 
 def eficiency_test(data,debug = False):
+    #define para cada elemento se houve acerto ou erro
     lista_de_acertos = []
     for cliente in data:
         dados_do_cliente = cliente
@@ -168,15 +169,16 @@ def eficiency_test(data,debug = False):
             lista_de_acertos.append('acerto')
         else:
             lista_de_acertos.append('erro')
-        
+    #conta a quantidade de erros e acertos
         acertos = lista_de_acertos.count('acerto')
         erros = lista_de_acertos.count('erro')
+    #calcula a porcentagem de acertos
         accuracy = acertos*100/120
-
-    if debug == False:
+    #return
+    if debug == False:#debug te permite escolher se quer só a porcentagem ou a lista completa com todos os resultados
         return f'acurária:{accuracy:.1f}%'
     elif debug ==True:
         return lista_de_acertos, f'acurária:{accuracy:.1f}%'
 
 
-print(eficiency_test(data))
+print(eficiency_test(data,debug=True))

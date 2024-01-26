@@ -54,11 +54,15 @@ def knn(data:list,analysed_point_coordinates:tuple, k = 3):
         moderado += pair.count('Moderado')
         agressivo += pair.count('Agressivo')
     # ---- essa parte fala qual das categorias tem mais, já criando o resultado final da fução que será o deduction
+        
     deduction = ''
     possibilities = {'Conservador': conservador,'Moderado':moderado,'Agressivo':agressivo}#nessa ordem pois em caso de empate optou-se por considerar a opçaõ mais agressiva
-    for x in possibilities.values():
-        if max(possibilities.values()) == x:
-            deduction =list(possibilities.keys())[list(possibilities.values()).index(x)]
+    if conservador == moderado and moderado == agressivo:
+        deduction = k_nearest_new[0][0]#se houver mesmo numero de cada categoria, pega a categoria do ponto mais próximo
+    else:
+        for x in possibilities.values():
+            if max(possibilities.values()) == x:
+                deduction =list(possibilities.keys())[list(possibilities.values()).index(x)]
     
     #return
     return deduction
