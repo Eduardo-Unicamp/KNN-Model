@@ -157,14 +157,14 @@ no_class = [[45926320819, '', (5800., 4000., 1200., 200.)],
 [64703873108, '', (6000., 2200., 5000., 1500.)]]
 
 
-def efficiency_test(data,debug = False):
+def efficiency_test(data,mode ="see",k = 3):
     #define para cada elemento se houve acerto ou erro
     lista_de_acertos = []
     for cliente in data:
         dados_do_cliente = cliente
         new_data = data.copy()
         new_data.remove(dados_do_cliente)
-        result = knn(new_data,dados_do_cliente[2])
+        result = knn(new_data,dados_do_cliente[2],k = k)
         if result == dados_do_cliente[1]:
             lista_de_acertos.append('acerto')
         else:
@@ -175,10 +175,11 @@ def efficiency_test(data,debug = False):
     #calcula a porcentagem de acertos
         accuracy = acertos*100/120
     #return
-    if debug == False:#debug te permite escolher se quer só a porcentagem ou a lista completa com todos os resultados
+    if mode == "see":#use este modo para ver a acuracia diretamente e formatada 
         return f'acurária:{accuracy:.1f}%'
-    elif debug ==True:
+    elif mode =="list":#use este modo para listar todos os erros e acertos (debug)
         return lista_de_acertos, f'acurária:{accuracy:.1f}%'
+    elif mode == "use":
+        return accuracy#use este modo para receber só o resultado da acuracia e usar em alguma outra função
 
 
-print(efficiency_test(data,debug=True))
