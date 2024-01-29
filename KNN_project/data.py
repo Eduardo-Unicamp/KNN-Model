@@ -1,4 +1,3 @@
-from knn import euclidean_distance, knn, dataset_knn, file_dataset_knn
 
 data = [[66707599984, 'Conservador', (5100., 3500., 1400., 200.)],
 [55695397315, 'Conservador', (4900., 3000., 1400., 200.)],
@@ -155,23 +154,3 @@ no_class = [[45926320819, '', (5800., 4000., 1200., 200.)],
 [54273611732, '', (7700., 3800., 6700., 2200.)],
 [75135392881, '', (7700., 2600., 6900., 2300.)],
 [64703873108, '', (6000., 2200., 5000., 1500.)]]
-
-
-
-knn(data,(5700., 2900., 4200., 1300.),k=5)
-
-
-file_dataset_knn(data,no_class)
-
-print('fim')
-
-
-
-
-
-
-'''teste de eficiencia: ou divide em teste e treino que nem ta no lms ou entao pra cada elemento tenta advinha a posição dele pros outros que sobraram e ver se acertou ou nao'''
-#depois ver sobre a outra distancia sem ser euclidiana
-#checar sobre normalização de dimensoes 
-
-# e se der igual dois valores pra distancia oq ocorre?
